@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {Container,FormControl,FormLabel,Input,Heading,Textarea,FormErrorMessage,Button} from "@chakra-ui/react"
+import { sendContactForm } from "@/lib/api"
 
 const initValues = {
   name: "",
@@ -34,6 +35,7 @@ const onSubmit = async () => {
     ...prev,
     isLoading:true
   }))
+  await sendContactForm(values)
 }
 
   return (
